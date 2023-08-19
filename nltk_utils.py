@@ -1,3 +1,4 @@
+import numpy as np
 import nltk
 nltk.download('punkt')
 from nltk.stem.porter import PorterStemmer
@@ -10,13 +11,10 @@ def stem(word):
     return stemmer.stem(word.lower())
 
 def bag_of_words(tokenized_sentence, all_words):
-    pass
+    result = np.zeros(len(all_words), dtype=np.float32)
+    stemmed_sentence = [stem(word) for word in tokenized_sentence]
+    for idx, w in enumerate(all_words):
+        if w in stemmed_sentence:
+            result[idx] = 1.0
+    return result
 
-# a = "How long does shipping take?"
-# print(a)
-# a = stem(a)
-# print(a)
-
-# words = ["Organize", "organizes", "organizing"]
-# stemmed_words = [stem(w) for w in words]
-# print(stemmed_words)
