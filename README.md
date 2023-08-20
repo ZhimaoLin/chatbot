@@ -1,6 +1,7 @@
 # chatbot
 
-A chat bot using PyTorch
+An AI chat bot using PyTorch.
+![Demo](./Demo.jpg)
 
 ## How to run the code
 
